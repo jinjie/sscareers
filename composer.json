@@ -1,7 +1,7 @@
 {
     "name": "jinjie/sscareers",
     "description": "Simple careers page for SilverStripe",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "license": "MIT",
     "authors": [
         {
@@ -9,5 +9,7 @@
             "email": "jinjie@swiftdev.sg"
         }
     ],
-    "require": {}
+    "require": {
+        "silverstripe/cms": "^4"
+    }
 }

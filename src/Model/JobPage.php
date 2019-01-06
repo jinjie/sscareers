@@ -1,25 +1,27 @@
 <?php
 
+namespace SSCareers;
+
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\TextField;
+
 /**
  * JobPage
  *
  * @package SSCareers
- * @subpackage JobPage
  * @author Kong Jin Jie <jinjie@swiftdev.sg>
  */
 
-class JobPage extends Page
+class JobPage extends \Page
 {
-    private static $db = array(
+    private static $table_name = 'JobPage';
+
+    private static $db = [
         'JobReference'      => 'Varchar(20)',
         'Description'       => 'HTMLText',
         'Responsibilities'  => 'HTMLText',
         'Qualifications'    => 'HTMLText',
-    );
-
-    private static $has_one = array();
-
-    private static $has_many = array();
+    ];
 
     public function getCMSFields()
     {
@@ -35,10 +37,5 @@ class JobPage extends Page
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create('Qualifications', _t('SSCareers.JOBQUALIFICATIONS', 'Job Qualifications')), 'Metadata');
     
         return $fields;
-    }
-
-    public function Content()
-    {
-        return $this->renderWith('JobPageContent');
     }
 }
